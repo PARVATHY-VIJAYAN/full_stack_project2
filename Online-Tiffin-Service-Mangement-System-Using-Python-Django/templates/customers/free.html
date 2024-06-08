@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You!</title>
+
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-image: url("{% static 'images/confetti.jpg' %}");
+            background-repeat:initial;
+        }
+        .center-div{
+            min-width: 50vw;
+            height: 60vh;
+            color: black;
+            place-items: center;
+            display: flex;
+            justify-content: center;
+            /* margin-top: ; */
+        }
+        header h1{
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="navbar navbar-expand -lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">
+                <img src="{% static 'images/logo3.png' %}" height="35" class="d-inline-block align-top" alt="">
+
+            </a>
+
+
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+
+
+                    {% block navbar %}
+                    <li class="nav-item">
+                        <a href="{% url 'loggedin' %}" class="nav-link">Home</a>
+                    </li>
+                    {% endblock %}
+
+
+                </ul>
+            </div>
+
+
+        </div>
+
+        <div class="main-header">
+            <div class="center-div">
+        <header>
+            <!-- <img src="{% static 'images/confetti.jpg' %}" alt="" style="width: 100;"> -->
+            <h1 style="font-weight: bold;">Thank you! {{ request.user }}.</h1>
+            <p style="font-weight: bold;">You have successfully availed the 2 day free trial offer. We look forward to serve you for a longer run!</p>
+        </header>
+            </div>
+        </div>
+        <section>
+            <article>
+
+            </article>
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+
+    
+
+
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Fill Credentials</title>
+
+    <style type="text/css">
+        body {
+            background-image: url("{% static 'images/payment5.jpg' %}");
+            background-repeat: no-repeat;
+            background-size: cover;
+
+        }
+
+
+
+        .card {
+            display: flex;
+            justify-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar navbar-expand -lg navbar-light bg-dark" style="opacity: .3;">
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="{% url 'loggedin' %}" class="nav-link" style="color: white;">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'logout' %}" class="nav-link" style="color: white;">Logout</a>
+                </li>
+            </ul>
+        </div>
+
+
+    </div>
+
+
+    <div class="d-flex justify-content-center m-lg-5 " >
+        <div class="card bg-transparent " style="width: 25rem; border-width: 5px;">
+            <div class="card-body">
+                <h5 class="card-title text-center">Hey {{ request.user }}! Help us know you better.</h5>
+                <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                <div class="d-flex justify-content-lg-between " style="color: white;">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <input type="submit" value="Pay {{ cost }}" class="btn btn-success d-flex justify-content-center">
+                </form>
+
+                
+            </div>
+            </div>
+            {% for message in messages %}
+                    <p style="color: whitesmoke;">{{ message }}</p>
+            {% endfor %}
+        </div>
+    </div>
+   
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
